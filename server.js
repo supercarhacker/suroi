@@ -1,24 +1,15 @@
 const express = require('express');
-const path = require('path');
-
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-// --- Serve static files from the client build ---
-const clientPath = path.join(__dirname, '../client/dist'); // or '../client/build'
-app.use(express.static(clientPath));
+// Use the port Render provides, or default to 8000 locally
+const PORT = process.env.PORT || 8000;
 
-// --- Example API route ---
-app.get('/api/hello', (req, res) => {
-  res.json({ message: 'Hello from the server!' });
+// Example route
+app.get('/', (req, res) => {
+  res.send('🎮 Battle Royale server is running!');
 });
 
-// --- Catch-all to serve index.html for SPA routing ---
-app.get('*', (req, res) => {
-  res.sendFile(path.join(clientPath, 'index.html'));
-});
-
-// --- Start the server ---
-app.listen(PORT, () => {
-  console.log(`Server is running at http://localhost:${PORT}`);
+// Start the server on all network interfaces
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 Server running on http://0.0.0.0:${PORT}`);
 });
