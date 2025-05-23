@@ -1,8 +1,11 @@
 {
-  "name": "battle-royal",
+  "name": "battle-royal-server",
   "version": "1.0.0",
+  "description": "Battle Royale server",
+  "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "echo 'No build needed'"
   },
   "dependencies": {
     "express": "^4.18.2"
