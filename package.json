@@ -1,12 +1,10 @@
 {
-  "name": "fullstack-monorepo",
+  "name": "battle-royal",
   "version": "1.0.0",
-  "private": true,
   "scripts": {
-    "build": "pnpm --filter web build && pnpm --filter server build",
-    "start": "pnpm --filter server start"
+    "start": "node server.js"
   },
-  "workspaces": [
-    "packages/*"
-  ]
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
